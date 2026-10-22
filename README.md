@@ -41,3 +41,27 @@ Best practice: use scoped or test keys on stream, and rotate them afterward.
 ## Privacy
 
 The extension has no network code. Your screen is only rendered locally in the tab; it goes wherever you choose to share that tab and nowhere else. The only permission used is `storage`, to remember whether the shield is on.
+
+## Security
+
+### Security review
+
+In October 2026 the code got an AI-assisted security review (Claude Code), focused on whether a website, another extension, or an AI agent could use it to reach your computer or your screen. That review found:
+
+- **No network access.** No `fetch`, XHR, WebSocket, or remote code. Nothing is sent anywhere.
+- **No way in from web pages or other extensions.** No content scripts, no message listeners, no `externally_connectable`, no web-accessible resources.
+- **No access to your files or local apps.** No native messaging and no host permissions.
+- **No dynamic code.** No `eval` or `innerHTML`; Chrome's Manifest V3 policy blocks inline and remote scripts.
+- **No hidden screen capture.** Chrome's own picker requires you to click **Share** every time.
+- **No dependencies and no secrets** in the code or git history.
+- **Fails safe.** The shield turns on whenever capture starts, and if capture stops, viewers see the setup screen, not your screen.
+
+This was not an independent professional audit, and it is no guarantee. The software is provided as-is under the MIT license. Read the code yourself; it's about 150 lines.
+
+### AI tools on stream
+
+The bigger AI risk sits next to this extension, not inside it. AI coding agents may read `.env` files or print keys in their output while you are LIVE, and an untrusted repo or web page can contain hidden instructions that tell an agent to reveal secrets. Hit HIDE while an agent is working with credentials, and use throwaway keys.
+
+### Install only from this repo
+
+Only install Stream Shield from this repository. Treat any copy that asks for more permissions or contains network code as suspicious. To report a security issue, open a GitHub issue, or use a private security advisory for anything sensitive.
