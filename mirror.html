@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Stream Shield</title>
+  <link rel="stylesheet" href="mirror.css">
+</head>
+<body class="shielded">
+  <video id="screen" autoplay muted playsinline></video>
+
+  <div id="hold">
+    <div class="card">
+      <img id="hold-logo" alt="" hidden>
+      <h1 id="hold-title"></h1>
+      <p id="hold-subtitle"></p>
+    </div>
+  </div>
+
+  <!-- Only visible before capture starts; viewers never see it once you're sharing. -->
+  <div id="setup">
+    <h2>Stream Shield</h2>
+    <ol>
+      <li>Click <b>Start mirror</b> and pick your <b>entire screen</b>.</li>
+      <li>In Riverside, share <b>this tab</b> ("Stream Shield") instead of your screen.</li>
+      <li>Press <kbd>⌘⇧9</kbd> anywhere to toggle the shield. It starts <b>on</b>.</li>
+    </ol>
+    <button id="start">Start mirror</button>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="mirror.js"></script>
+</body>
+</html>

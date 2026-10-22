@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Stream Shield",
+  "version": "0.1.0",
+  "description": "Mirrors your screen into a tab you share on Riverside, with a hotkey that blurs it behind a branded hold card.",
+  "action": {
+    "default_title": "Open Stream Shield"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage"],
+  "commands": {
+    "toggle-shield": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+9",
+        "mac": "Command+Shift+9"
+      },
+      "description": "Toggle the privacy shield",
+      "global": true
+    }
+  }
+}
